@@ -63,7 +63,7 @@ object Publish {
           PgpSettings.pgpSecretRing := file(props.getProperty(secretKeyRing)),
           credentials += Credentials(
             "Sonatype Nexus Repository Manager",
-            "oss.sonatype.org",
+            "repo.nos.to",
             props.getProperty(username),
             props.getProperty(password)),
           publishSnapshot := publishSnapshotTask.value,
@@ -87,7 +87,7 @@ object Publish {
 
   lazy val mavenSettings = Seq(
     publishTo := {
-      val nexus = "https://oss.sonatype.org/"
+      val nexus = "https://repo.nos.to/"
       if (isSnapshot.value) {
         Some("snapshots" at nexus + "content/repositories/snapshots")
       } else {
